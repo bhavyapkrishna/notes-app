@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Toolbar from '@mui/material/Toolbar';
 
 type Note = {
   id: number;
@@ -123,14 +127,23 @@ function App() {
       } catch (error) {
         console.log(error);
       }
-
-
     };
 
-
   return (
-    <div className="app-container">
-      <form className = "note-form"
+    <div>
+      <div className="header">
+      <Box sx={{ flexGrow: 1, padding: 2}}>
+        <AppBar position="static" sx={{borderRadius: 2}}>
+          <Toolbar sx={{ justifyContent: 'center', position: 'relative', background: '#77e5a2', borderRadius: 2}}>
+            <Typography sx={{ fontWeight: '600' }} variant="h6" component="div" color="black">
+              Notekeeper
+            </Typography>{' '}
+          </Toolbar>
+        </AppBar>
+      </Box>
+      </div>
+      <div>
+      <Box component="form" className = "note-form"
         onSubmit={(event) => 
         selectedNote
         ? handleUpdateNote(event)
@@ -138,9 +151,9 @@ function App() {
         <input value={title} 
           onChange={(event) => setTitle(event.target.value)} 
           placeholder="Title" required />
-        <textarea value={content}
+        <textarea className="content-area" value={content}
           onChange={(event) => setContent(event.target.value)}
-          placeholder="Enter Note" rows={10} required />
+          placeholder="Enter Content" rows={5} required />
           {selectedNote ? (
             <div className="edit-buttons">
               <button type="submit">Save</button>
@@ -149,8 +162,13 @@ function App() {
           ) : (
             <button type="submit">Add Note</button>
           )}
-      </form>
-
+      </Box>
+      </div>
+    <div className="app-container">
+    <div>
+        <Typography />
+      </div>
+      <Box>
       <div className="notes-grid">
       {notes.map((note) => (
         <div className="note-item"
@@ -163,6 +181,8 @@ function App() {
           <p>{note.content}</p>
         </div>
       ))}
+    </div>
+      </Box>
     </div>
     </div>
   );
