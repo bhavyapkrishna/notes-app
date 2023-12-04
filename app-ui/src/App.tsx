@@ -42,7 +42,7 @@ function App() {
     const handleAddNote = async (event: React.FormEvent) => {
       event.preventDefault();
       try {
-        const response = await fetch("http://localhost:4000/api/notes", {
+        const response = await fetch("http://localhost:4000/", {
           method: "POST",
           headers: {
             "Content-type": "application/json"
@@ -75,7 +75,7 @@ function App() {
 
       try {
 
-        const response = await fetch(`http://localhost:4000/api/notes/${selectedNote.id}`, {
+        const response = await fetch(`http://localhost:4000/${selectedNote.id}`, {
           method: "PUT",
           headers: {
             "Content-type": "application/json"
@@ -114,7 +114,7 @@ function App() {
       event.stopPropagation();
 
       try {
-        const response = await fetch(`http://localhost:4000/api/notes/${noteId}`, {
+        const response = await fetch(`http://localhost:4000/${noteId}`, {
           method: "DELETE"
         });
 
