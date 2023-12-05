@@ -22,7 +22,7 @@ function App() {
     useEffect(() => {
       const fetchNotes = async () => {
         try {
-          const response = await fetch("http://localhost:4000/api/notes");
+          const response = await fetch("https://bpk31-notes-server.onrender.com/api/notes");
           const notes: Note[] = await response.json();
           setNotes(notes);
         } catch (error) {
