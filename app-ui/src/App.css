@@ -46,6 +46,7 @@ body {
   width: 80%;
   height: 75%;
   margin: 5px;
+  overflow: auto;
 }
 
 .notes-header {
