@@ -42,7 +42,7 @@ function App() {
     const handleAddNote = async (event: React.FormEvent) => {
       event.preventDefault();
       try {
-        const response = await fetch("http://localhost:4000/", {
+        const response = await fetch("https://bpk31-notes-server.onrender.com/", {
           method: "POST",
           headers: {
             "Content-type": "application/json"
@@ -75,7 +75,7 @@ function App() {
 
       try {
 
-        const response = await fetch(`http://localhost:4000/${selectedNote.id}`, {
+        const response = await fetch(`https://bpk31-notes-server.onrender.com/${selectedNote.id}`, {
           method: "PUT",
           headers: {
             "Content-type": "application/json"
@@ -114,7 +114,7 @@ function App() {
       event.stopPropagation();
 
       try {
-        const response = await fetch(`http://localhost:4000/${noteId}`, {
+        const response = await fetch(`https://bpk31-notes-server.onrender.com/${noteId}`, {
           method: "DELETE"
         });
 
