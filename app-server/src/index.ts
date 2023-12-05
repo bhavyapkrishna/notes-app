@@ -14,7 +14,7 @@ app.get("/", async (req, res) => {
     res.json(notes);
 });
 
-app.post("/", async(req, res) => {
+app.post("/api/notes", async(req, res) => {
     const { title, content } = req.body;
 
     if(!title || !content) {
@@ -35,7 +35,7 @@ app.post("/", async(req, res) => {
     }
 })
 
-app.put("/:id", async(req, res) => {
+app.put("/api/notes/:id", async(req, res) => {
     const {title, content} = req.body;
     const id = parseInt(req.params.id);
 
@@ -65,7 +65,7 @@ app.put("/:id", async(req, res) => {
     }
 })
 
-app.delete("/:id", async (req, res) => {
+app.delete("/api/notes/:id", async (req, res) => {
     const id = parseInt(req.params.id);
 
     if(!id || isNaN(id)) {
